@@ -17,29 +17,16 @@ public class JuegosService {
 	private List<Juego> juegos;
 	
 	public JuegosService() {
-		// Creación de la lista de películas.
+		// Creación de la lista de juegos.
 		juegos = new ArrayList<Juego>();
-		// Actores de la primera película.
-		Actor keanu = new Actor("Keanu","Reeves");
-		Actor laurence = new Actor("Laurence","Fishburne");
-		// Creación de la película y adición de los actores.
-		Juego matrix = new Juego("Matrix",1999,"http://www.imdb.com/title/tt0133093/");
-		ArrayList<Actor> acts = new ArrayList<Actor>();
-		acts.add(keanu);
-		acts.add(laurence);
-		matrix.setActores(acts);
-		// Se añade la película a la lista.
-		juegos.add(matrix);
+
+		Juego cod = new Juego("Call Of Dutty WII", 49.95, "Sledgehammer Games", "Activision", "Acción, Primera persona (FPS)(Bélico, Zombies, Segunda Guerra Mundial y Paramilitares y mercenarios)", "1-12 (Competitivo: 12 online / Cooperativo: 4 online)", "5-6 horas + multijugador incalculable", "Textos en español y voces en español","3 de noviembre de 2017","Pegi: +18");
+
+		juegos.add(cod);
 		
-		// Se repite el proceso para otra película.
-		Actor marlon = new Actor("Marlon","Brando");
-		Actor al = new Actor("Al","Pacino");
-		acts = new ArrayList<Actor>();
-		acts.add(marlon);
-		acts.add(al);
-		Juego elpadrino = new Juego("El Padrino",1972,"http://www.imdb.com/title/tt0068646/");
-		elpadrino.setActores(acts);
-		juegos.add(elpadrino);
+		Juego pubg = new Juego("Player Unknown's Battlegrounds", 24.95, "Bluehole Studio", "Bluehole, Inc.", "Acción, Primera persona (FPS), Battle royale, Supervivencia, Shooter (Bélico, Moderno y Paramilitares y mercenarios)", "100 (1 a 4 por equipo) (Competitivo: Sí, online / Cooperativo: Sí, online)", "Incalculable", "Textos en español y voces en inglés","26 de enero de 2018","Pegi: +12");
+
+		juegos.add(pubg);
 	}
 	
 	// Métodos para obtener las películas

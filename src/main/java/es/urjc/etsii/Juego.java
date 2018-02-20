@@ -16,11 +16,11 @@ public class Juego {
 	private String duration;
 	private String language;
 	private String releaseDate;
-	
+	private String pegi;
 	public Juego() {
 	}
 	
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate) {
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -30,6 +30,7 @@ public class Juego {
 		this.setDuration(duration);
 		this.setLanguage(language);
 		this.setReleaseDate(releaseDate);
+		this.setPegi(pegi);
 
 	}
 
@@ -108,7 +109,11 @@ public class Juego {
 	}
 
 
+	public String getPegi() {
+		return pegi;
+	}
 
-	
-	
+	public void setPegi(String pegi) {
+		this.pegi = pegi;
+	}
 }
