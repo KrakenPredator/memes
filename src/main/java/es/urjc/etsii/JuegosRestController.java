@@ -20,12 +20,12 @@ public class JuegosRestController {
 	@Autowired
 	private JuegosService juegosService;
 
-	@RequestMapping(value = "/peliculas", method = RequestMethod.GET)
+	@RequestMapping(value = "/juegos", method = RequestMethod.GET)
 	public List<Juego> getJuegos() {
 		return juegosService.getJuegos();
 	}
 
-	@RequestMapping(value = "/peliculas/{index}", method = RequestMethod.GET)
+	@RequestMapping(value = "/juegos/{index}", method = RequestMethod.GET)
 	public Juego getJuego
 			(@PathVariable("index") int index) {
 		return juegosService.getJuego(index);
