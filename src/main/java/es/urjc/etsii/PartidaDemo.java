@@ -14,7 +14,11 @@ public class PartidaDemo {
     }
 
     public PartidaDemo(String date, String time, Juego game, Usuario user, double duration){
-        
+        this.date = date;
+        this.time = time;
+        this.game = game;
+        this.user = user;
+        this.duration = duration;
     }
 
     public String getDate() {
