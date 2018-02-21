@@ -17,10 +17,12 @@ public class Juego {
 	private String language;
 	private String releaseDate;
 	private String pegi;
+	private String url;
+
 	public Juego() {
 	}
 	
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi) {
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -31,6 +33,7 @@ public class Juego {
 		this.setLanguage(language);
 		this.setReleaseDate(releaseDate);
 		this.setPegi(pegi);
+		this.setUrl(url);
 
 	}
 
@@ -115,5 +118,13 @@ public class Juego {
 
 	public void setPegi(String pegi) {
 		this.pegi = pegi;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
