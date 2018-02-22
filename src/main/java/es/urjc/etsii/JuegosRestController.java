@@ -41,7 +41,7 @@ public class JuegosRestController {
 		if (loggedIn != null && (loggedIn.getPassword().equals(user.getPassword())))
 			return new ResponseEntity<Usuario>(loggedIn, HttpStatus.OK);
 		else
-			return ResponseEntity.badRequest().body(loggedIn);
+			return ResponseEntity.badRequest().body(null);
 	}
 
 }

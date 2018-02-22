@@ -19,7 +19,7 @@ function checkear_usuario(){
         },
         error: function (e) {
            console.log("failure: "+e.responseText);
-           $('#loginForm').append("<p>Error al iniciar sesión</p>")
+           $('#iniciado').replaceWith("<p id='iniciado'>Error al iniciar sesión</p>")
 
         }
     });
