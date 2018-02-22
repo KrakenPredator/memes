@@ -20,6 +20,9 @@ public class JuegosRestController {
 	@Autowired
 	private JuegosService juegosService;
 
+	@Autowired
+	private UsuarioService usuarioService;
+
 	@RequestMapping(value = "/juegos", method = RequestMethod.GET)
 	public List<Juego> getJuegos() {
 		return juegosService.getJuegos();
@@ -33,9 +36,12 @@ public class JuegosRestController {
 
 	@PostMapping("/login")
     @ResponseBody
-	public ResponseEntity<?> getSearchResultViaAjax(@RequestBody Login search){
-		System.out.println(search.getUsername());
-		return new ResponseEntity<String>(search.getUsername(), HttpStatus.OK);
+	public ResponseEntity<?> getUsuario(@RequestBody Login user){
+		Usuario loggedIn = usuarioService.getUsuarioByUsername(user.getUsername());
+		if (loggedIn != null && (loggedIn.getPassword().equals(user.getPassword())))
+			return new ResponseEntity<Usuario>(loggedIn, HttpStatus.OK);
+		else
+			return ResponseEntity.badRequest().body(loggedIn);
 	}
 
 }

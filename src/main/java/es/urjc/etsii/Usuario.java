@@ -27,6 +27,12 @@ public class Usuario {
         this.city = city;
         this.isAdmin = isAdmin;
     }
+    public Usuario(String username, String pass, String name, String email){
+        this.username = username;
+        this.password = pass;
+        this.name = name;
+        this.email = email;
+    }
     public String getUsername() {
         return username;
     }

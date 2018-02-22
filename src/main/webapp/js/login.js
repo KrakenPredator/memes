@@ -7,20 +7,19 @@ function checkear_usuario(){
     $.ajax({
         type: "POST",
         contentType : 'application/json; charset=utf-8',
-        dataType : 'json',
         url: "/login",
         cache: false,
         timeout: 600000,
         data: JSON.stringify(user),
-        success: function (response) {
-            console.log("SUCCESS : "+response);
+        success: function (e) {
+            console.log("Successful Login"+e);
+            var profile = "<a id=\"profile\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> "+e.name+"</a>"
+            $('#profile').replaceWith(profile);
+            $('#modalLogin').modal('hide');
         },
         error: function (e) {
-
-            var profile = "<a id=\"profile\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> "+e.responseText+"</a>"
-
-            $('#profile').replaceWith(profile);
            console.log("failure: "+e.responseText);
+           $('#loginForm').append("<p>Error al iniciar sesión</p>")
 
         }
     });
