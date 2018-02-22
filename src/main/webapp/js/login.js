@@ -1,3 +1,4 @@
+var sesionIniciada = false;
 function checkear_usuario(){
     var user = {}
     user["username"]=$("#email").val();
@@ -11,20 +12,15 @@ function checkear_usuario(){
         cache: false,
         timeout: 600000,
         data: JSON.stringify(user),
-        success: function () {
-
-            var json = "<i class=\"fa fa-user-circle-o\">Mi cuenta</i>";
-            
-            
-            $('#profile').replaceWith(json);
-
-            console.log("SUCCESS : ");
-    
-
+        success: function (response) {
+            console.log("SUCCESS : "+response);
         },
         error: function (e) {
 
-           console.log(e);
+            var profile = "<a id=\"profile\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> "+e.responseText+"</a>"
+
+            $('#profile').replaceWith(profile);
+           console.log("failure: "+e.responseText);
 
         }
     });

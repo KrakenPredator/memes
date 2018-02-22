@@ -33,9 +33,9 @@ public class JuegosRestController {
 
 	@PostMapping("/login")
     @ResponseBody
-	public ResponseEntity<?> getSearchResultViaAjax(@RequestBody Login search) {
+	public ResponseEntity<?> getSearchResultViaAjax(@RequestBody Login search){
 		System.out.println(search.getUsername());
-		return new ResponseEntity<String>("hecho", HttpStatus.OK);
+		return new ResponseEntity<String>(search.getUsername(), HttpStatus.OK);
 	}
 
 }
