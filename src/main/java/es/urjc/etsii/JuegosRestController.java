@@ -1,12 +1,12 @@
 package es.urjc.etsii;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * Controlador Spring para gestión de peticiones REST.
@@ -29,6 +29,14 @@ public class JuegosRestController {
 	public Juego getJuego
 			(@PathVariable("index") int index) {
 		return juegosService.getJuego(index);
+	}
+
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	@ResponseBody
+	public String getSearchResultViaAjax(
+			@RequestBody Login search, Errors errors) {
+		System.out.println(search.getUsername());
+		return "success";
 	}
 
 }

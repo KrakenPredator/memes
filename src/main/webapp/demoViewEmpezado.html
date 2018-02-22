@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>GameFlix</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="css/css.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/funcionalidadGameView.js"></script>
+    <script src="js/countdown2.js"></script>
+    
+</head>
+
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">GAMEFLIX</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style="">
+                <ul class="nav navbar-nav">
+                    <li><a href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>
+                    <li id="selected"><a id="seleccionado" href="#"> <span class="fa fa-gamepad"></span> Demos</a></li>
+                    <li><a href="storeView.html"> <span class="glyphicon glyphicon-shopping-cart" ></span> Tienda</a></li>
+                    <li><a href="reviewsView.html"> <span class="glyphicon glyphicon-film" ></span> Reviews</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Inicio sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        
+        <div class="row" style="margin-bottom:2%">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-10" >
+            <h2 style="text-align: center;">HAS CONSUMIDO: 7:52.</h2>
+            <h2 style="text-align: center;">TIEMPO RESTANTE DEMO: </h2>
+            <h2 style="text-align: center;" id="timer"></h2>
+        <div class="embed-responsive embed-responsive-16by9"> 
+            <iframe width="1920" height="1080" src="https://www.youtube.com/embed/zvplCaebC6I?start=472&autoplay=1&rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            
+        </div>
+        </div>
+        
+        </div>
+    </div>
+   
+    
+   
+
+</body>
+</html>
