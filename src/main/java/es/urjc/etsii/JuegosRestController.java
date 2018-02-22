@@ -34,7 +34,7 @@ public class JuegosRestController {
 		return juegosService.getJuego(index);
 	}
 
-	@PostMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
 	public ResponseEntity<?> getUsuario(@RequestBody Login user){
 		Usuario loggedIn = usuarioService.getUsuarioByUsername(user.getUsername());
