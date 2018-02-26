@@ -1,5 +1,7 @@
 package es.urjc.etsii;
 
+import org.springframework.stereotype.Component;
+
 import java.sql.*;
 
 public class GestionBD {
