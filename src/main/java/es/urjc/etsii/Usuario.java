@@ -9,10 +9,7 @@ import javax.persistence.GenerationType;
 @Entity
 public class Usuario {
 
-    @Override
-    public String toString(){
-        return "Nombre: "+this.name+", mail:"+this.email+", username: "+this.username;
-    }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -128,5 +125,10 @@ public class Usuario {
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @Override
+    public String toString(){
+        return "Nombre: "+this.name+", mail:"+this.email+", username: "+this.username;
     }
 }

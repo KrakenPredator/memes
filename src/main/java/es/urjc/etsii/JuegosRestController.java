@@ -17,7 +17,7 @@ import java.util.List;
  */
 @RestController
 public class JuegosRestController {
-	
+
 
 	@Autowired
 	private UserRepository userRepository;

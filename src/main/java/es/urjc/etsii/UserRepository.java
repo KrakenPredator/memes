@@ -8,6 +8,6 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "users", path = "users")
 public interface UserRepository extends CrudRepository<Usuario, Integer> {
-    List<Usuario> findByUsername(@Param("username") String username);
+    Usuario findByUsername(@Param("username") String username);
 
 }

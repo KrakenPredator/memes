@@ -1,12 +1,27 @@
 package es.urjc.etsii;
 
-/**
- * Representación de los datos básicos de una película.
- * 
- * @author J. M. Colmenar
- *
- */
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+@Entity
 public class Juego {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	private String title;
 	private double price;
 	private String developer;

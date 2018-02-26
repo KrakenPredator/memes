@@ -1,14 +1,12 @@
 package es.urjc.etsii;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-/**
- * Clase principal de Ejemplo REST Spring
- * 
- * @author J. M. Colmenar
- *
- */
+import javax.sql.DataSource;
+
 @SpringBootApplication
 public class App {
 
