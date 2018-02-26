@@ -1,8 +1,8 @@
-var sesionIniciada = false;
+var loggedInUSer = null;
 
 function logOut() {
 
-    sesionIniciada = false;
+    loggedInUSer = null;
     $('#login-link').replaceWith("<li id=\"login-link\"><a id=\"login-link\" href=\"#modalLogin\" \" data-toggle=\"modal\"><span id=\"sesion-icon\" class=\"glyphicon glyphicon-log-in\"></span> Iniciar sesión</a></li>");
     $('#profile').replaceWith("<li id=\"profile\" style=\"display:none;\"><a  href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Perfil</a></li>");
 
@@ -22,6 +22,7 @@ function checkear_usuario(){
         dataType: 'json',
         data: JSON.stringify(user),
         success: function (e) {
+            loggedInUSer = e;
             console.log("Successful Login"+e.name+" is inside, we are inside nigga");
             var profile = "<li id='profile'><a  href='#'><span class='glyphicon glyphicon-user'></span> "+e.name+"</a></li>";
             $('#profile').replaceWith(profile);

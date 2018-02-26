@@ -20,21 +20,11 @@ public class JuegosRestController {
 
 
 	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
 	private JuegoRepository juegoRepository;
 
 
 	@PostConstruct
 	private void initDatabase() {
-// Nuevos usuarios
-		userRepository.save(new Usuario("krpr", "1234", "Javier Lopez", "mail@mail.com"));
-		userRepository.save(new Usuario("mane", "1234", "Manuel Viejo", "mail@mail.com"));
-// Lectura de datos
-		System.out.println("\nListado de usuarios");
-		Iterable<Usuario> all = userRepository.findAll();
-
 		Juego cod = new Juego("Call Of Dutty WII", 49.95, "Sledgehammer Games", "Activision", "Acción, Primera persona (FPS)(Bélico, Zombies, Segunda Guerra Mundial y Paramilitares y mercenarios)", "1-12 (Competitivo: 12 online / Cooperativo: 4 online)", "5-6 horas + multijugador incalculable", "Textos en español y voces en español","3 de noviembre de 2017","Pegi: +18", "");
 		juegoRepository.save(cod);
 
@@ -52,25 +42,6 @@ public class JuegosRestController {
 	public Juego getJuego
 			(@PathVariable("index") int index) {
 		return juegoRepository.findOne(index);
-	}
-
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-    @ResponseBody
-	public ResponseEntity<?> getUsuario(@RequestBody Login user){
-		Usuario loggedIn = userRepository.findByUsername(user.getUsername());
-		if (loggedIn != null && (loggedIn.getPassword().equals(user.getPassword())))
-			return new ResponseEntity<Usuario>(loggedIn, HttpStatus.OK);
-		else
-			return ResponseEntity.badRequest().body(null);
-	}
-
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	@ResponseBody
-	public ResponseEntity<?> registerUsuario(@RequestBody Usuario user){
-		System.out.println(user.getUsername());
-		userRepository.save(new Usuario(user.getUsername(), user.getName(), user.getEmail(), user.getPassword()));
-		System.out.println(userRepository.findAll());
-		return new ResponseEntity<Iterable<Usuario>>(userRepository.findAll(), HttpStatus.OK);
 	}
 
 }

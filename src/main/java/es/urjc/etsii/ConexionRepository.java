@@ -1,4 +1,11 @@
 package es.urjc.etsii;
 
-public interface ConexionRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import java.util.List;
+
+@RepositoryRestResource(collectionResourceRel = "users", path = "users")
+public interface ConexionRepository extends CrudRepository<Conexion, Integer> {
+    List<Conexion> getConexionsByUsernameAndResult(String username, Boolean result);
 }
