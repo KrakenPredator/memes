@@ -1,18 +1,23 @@
 package es.urjc.etsii;
 
-import org.springframework.data.annotation.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
 public class Usuario {
 
-    private int id;
+    @Override
+    public String toString(){
+        return "Nombre: "+this.name+", mail:"+this.email+", username: "+this.username;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     public int getId() {
         return id;
     }

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**
@@ -21,7 +22,25 @@ public class JuegosRestController {
 	private JuegosService juegosService;
 
 	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
 	private UsuarioService usuarioService;
+
+	@PostConstruct
+	private void initDatabase() {
+// Nuevos usuarios
+		userRepository.save(new Usuario("krpr", "1234", "Javier Lopez", "mail@mail.com"));
+// Lectura de datos
+		System.out.println("\nListado de usuarios");
+		Iterable<Usuario> all = userRepository.findAll();
+		for (Usuario u : all) {
+			System.out.println(u);
+		}
+		int firstId = userRepository.findAll().iterator().next().getId();
+		userRepository.delete(firstId);
+		System.out.println("\nFilas que quedan: "+userRepository.count()+"\n");
+	}
 
 	@RequestMapping(value = "/juegos", method = RequestMethod.GET)
 	public List<Juego> getJuegos() {
@@ -42,6 +61,15 @@ public class JuegosRestController {
 			return new ResponseEntity<Usuario>(loggedIn, HttpStatus.OK);
 		else
 			return ResponseEntity.badRequest().body(null);
+	}
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<?> registerUsuario(@RequestBody Usuario user){
+		System.out.println(user.getUsername());
+		userRepository.save(new Usuario(user.getUsername(), user.getName(), user.getEmail(), user.getPassword()));
+		System.out.println(userRepository.findAll());
+		return new ResponseEntity<Iterable<Usuario>>(userRepository.findAll(), HttpStatus.OK);
 	}
 
 }
