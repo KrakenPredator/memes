@@ -38,6 +38,7 @@ public class Usuario {
     public Usuario(){
     }
 
+
     public Usuario(String username, String password, String name, String lastname, String email, String birthdate, String country, String city, boolean isAdmin){
         this.username = username;
         this.password = password;

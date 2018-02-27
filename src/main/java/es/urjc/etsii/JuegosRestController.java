@@ -33,15 +33,4 @@ public class JuegosRestController {
 		juegoRepository.save(pubg);
 	}
 
-	@RequestMapping(value = "/juegos", method = RequestMethod.GET)
-	public List<Juego> getJuegos() {
-		return (List<Juego>) juegoRepository.findAll();
-	}
-
-	@RequestMapping(value = "/juegos/{index}", method = RequestMethod.GET)
-	public Juego getJuego
-			(@PathVariable("index") int index) {
-		return juegoRepository.findOne(index);
-	}
-
 }

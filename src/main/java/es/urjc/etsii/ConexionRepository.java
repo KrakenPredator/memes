@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "users", path = "users")
+@RepositoryRestResource(collectionResourceRel = "connections", path = "connections")
 public interface ConexionRepository extends CrudRepository<Conexion, Integer> {
     List<Conexion> getConexionsByUsernameAndResult(String username, Boolean result);
 }
