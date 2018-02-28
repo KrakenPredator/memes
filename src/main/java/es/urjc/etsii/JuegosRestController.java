@@ -32,6 +32,14 @@ public class JuegosRestController {
 		juegoRepository.save(pubg);
 		Juego dbz = new Juego("Dragon Ball Fighter Z", 39.95, "Arc System Works", "Bandai Namco", "Acción, Lucha (Anime, Manga y TV)", "1-6 (2 local - 6 online) (Competitivo: Sí / Cooperativo: Sí)", "9-10 horas + multijugador incalculable", "Textos en español y voces en inglés y japonés", "20 de diciembre de 2017", "Pegi: +18", "", "dbfCover.jpg");
 		juegoRepository.save(dbz);
+		Juego fifa = new Juego("Fifa 18", 39.95, "Arc System Works", "Bandai Namco", "Acción, Lucha (Anime, Manga y TV)", "1-6 (2 local - 6 online) (Competitivo: Sí / Cooperativo: Sí)", "9-10 horas + multijugador incalculable", "Textos en español y voces en inglés y japonés", "20 de diciembre de 2017", "Pegi: +18", "", "fifa18Cover.jpg");
+		juegoRepository.save(fifa);
+		Juego kcd = new Juego("Kingdom Come Deliverance", 39.95, "Arc System Works", "Bandai Namco", "Acción, Lucha (Anime, Manga y TV)", "1-6 (2 local - 6 online) (Competitivo: Sí / Cooperativo: Sí)", "9-10 horas + multijugador incalculable", "Textos en español y voces en inglés y japonés", "20 de diciembre de 2017", "Pegi: +18", "", "kcdCover.jpg");
+		juegoRepository.save(kcd);
+		Juego gow = new Juego("God Of War", 59.95, "Sony Santa Monica", "Sony", "Acción, Acción y aventura, Hack and Slash (Fantasía y Antigua Grecia)", "1", "20 horas", "Textos en español y voces en español", "20 de abril de 2018", "Pegi: +18", "", "gowCover.jpg");
+		juegoRepository.save(gow);
+		Juego rd2 = new Juego("Red Dead Redemption 2", 64.95, "RockStar Games", "Take 2", "Acción, Acción y aventura (Western)", "1-2(2 local - 12 online) (Competitivo: Sí / Cooperativo: Sí)", ">9-10 horas + multijugador incalculable", "Textos en español y voces en inglés", "26 de octubre de 2018", "Pegi: +18", "", "rd2Cover.jpg");
+		juegoRepository.save(rd2);
 	}
 
 }

@@ -27,8 +27,8 @@ $(document).ready(function(){
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
-                    "\t\t\t\t\t\t\t<img id=\"gameCover"+i-1+"\" class=\"gameCover\" src=\"resources/"+games[i].img+"\" style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
-                    "\t\t\t\t\t\t\t<a href=\"demoView.html\"><button href=\"/demoView.html\" id=\"demoButton0\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;  onclick=\"openDemoTab()>Probar demo</button></a>\n" +
+                    "\t\t\t\t\t\t\t<img id=\"gameCover"+(i-1)+"\" class=\"gameCover\" src=\"resources/"+games[i].img+"\" style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
+                    "\t\t\t\t\t\t\t<a href=\"demoView.html\"><button href=\"/demoView.html\" id=\"demoButton"+(i-1)+"\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;  onclick=\"openDemoTab()>Probar demo</button></a>\n" +
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t<div class=\"col-md-8\" style=\"margin-top: 1.5em;\">\n" +
                     "\t\t\t\t\t\t\t<span class=\"a_n\">\n" +
@@ -50,41 +50,31 @@ $(document).ready(function(){
                     paridad = 0;
                     $("#colDer").append(html);
                 }
+
+               /* var img4 = document.createElement('img');
+                img4.setAttribute('src', $('#gameCover'+i).attr('src'));
+                img4.crossOrigin = "Anonymous";
+                var vibrant = new Vibrant(img4);
+                var swatches = vibrant.swatches();
+                for (var swatch in swatches){
+                    if (swatches.hasOwnProperty(swatch) && swatches[swatch]){
+                        console.log(swatch, swatches[swatch].getHex());
+                        document.getElementById("demoButton"+i).style.backgroundColor = swatches[swatch].getHex();
+                        document.getElementById("demoButton"+i).style.border = swatches[swatch].getHex();
+                        break;
+                    }
+                }*/
             }
         },
         error: function (e) {
             console.log(e.toString());
         }
     });
-    
-    var juegos = document.getElementsByClassName('gameCover');
-    for(var i = 0; i <= juegos.length; i++){
-        var img4 = document.createElement('img');
-        img4.setAttribute('src', $('#gameCover'+i).attr('src'));
-        img4.crossOrigin = "Anonymous";
-        var vibrant = new Vibrant(img4);
-        var swatches = vibrant.swatches();
-        for (var swatch in swatches){
-            if (swatches.hasOwnProperty(swatch) && swatches[swatch]){
-                console.log(swatch, swatches[swatch].getHex());
-                document.getElementById("demoButton"+i).style.backgroundColor = swatches[swatch].getHex();
-                document.getElementById("demoButton"+i).style.border = swatches[swatch].getHex();
-                break;
-            }
-        }
-    }
-    colIzq = document.getElementById("colIzq").cloneNode(true);
-    colDer = document.getElementById("colDer").cloneNode(true);
+
     
 });
     
 
-function openDemoTab(){
-    var args = [];
-    //src="resources/codGameplay.mkv"
-    args.push("resources/codGameplay.mkv");
-    newTab(args);
-}
 
 function filtrarBusquedaPorNombre() {
     
