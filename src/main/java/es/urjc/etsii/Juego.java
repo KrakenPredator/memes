@@ -33,11 +33,12 @@ public class Juego {
 	private String releaseDate;
 	private String pegi;
 	private String url;
+	private String img;
 
 	public Juego() {
 	}
 	
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url) {
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, String img) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -49,8 +50,10 @@ public class Juego {
 		this.setReleaseDate(releaseDate);
 		this.setPegi(pegi);
 		this.setUrl(url);
+		this.setImg(img);
 
 	}
+
 
 	// Getters y setters
 
@@ -141,5 +144,13 @@ public class Juego {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 }

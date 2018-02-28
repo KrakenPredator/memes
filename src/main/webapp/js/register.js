@@ -12,7 +12,7 @@ function changeModal() {
     }
 }
 
-function registrar_usurio() {
+function registrar_usuario() {
     var user = {}
     user["username"] = $("#usernameReg").val();
     user["name"] = $("#nombreReg").val()+" "+$("#apellidosReg").val();

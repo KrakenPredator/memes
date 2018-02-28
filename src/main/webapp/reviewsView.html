@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/registerGames.js"></script>
 </head>
 
 <body>
@@ -53,7 +54,7 @@
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
                 <div class="item active">
-                  <img src="resources/cod.jpg" alt="Noticia" style="height:100%; width:100%;"></img>
+                  <img id = "imgCarr" src="resources/cod.jpg" alt="Noticia" style="height:100%; width:100%;"></img>
 
                 </div>
 
@@ -79,7 +80,11 @@
         </div>
         <div class="col-md-4">
           <div class="col-md-9" >
-            <input type="text" style="float:right; margin-left: 100%;"  class="form-control" placeholder="Introduce tu búsqueda"></input>
+              <form id="upload-file-form">
+                  <input id="upload-file-input" onchange="uploadFile()" type="file" name="uploadfile" accept="*" />
+                  <br />
+                  <span id="upload-file-message"></span>
+              </form>
           </div>
           <div class="col-md-3">
             <button type="submit" class="btn btn-default" >Buscar</button>
