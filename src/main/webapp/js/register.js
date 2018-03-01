@@ -13,11 +13,11 @@ function changeModal() {
 }
 
 function registrar_usuario() {
-    var user = {}
-    user["username"] = $("#usernameReg").val();
-    user["name"] = $("#nombreReg").val()+" "+$("#apellidosReg").val();
-    user["email"] = $("#emailReg").val();
-    user["password"] = $("#passwdReg").val();
+    var game = {}
+    game["username"] = $("#usernameReg").val();
+    game["name"] = $("#nombreReg").val();
+    game["email"] = $("#emailReg").val();
+    game["password"] = $("#passwdReg").val();
     var pass_rep = $("#passwdRegRep").val();
     $.ajax({
         type: "POST",
@@ -26,7 +26,7 @@ function registrar_usuario() {
         cache: false,
         timeout: 600000,
         dataType: 'json',
-        data: JSON.stringify(user),
+        data: JSON.stringify(game),
         success:function (e) {
             console.log(e.toString());
         },

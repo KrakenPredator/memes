@@ -54,6 +54,20 @@ public class Juego {
 
 	}
 
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi) {
+		this.setTitle(title);
+		this.setPrice(price);
+		this.setDeveloper(developer);
+		this.setEditor(editor);
+		this.setGenre(genre);
+		this.setPlayers(players);
+		this.setDuration(duration);
+		this.setLanguage(language);
+		this.setReleaseDate(releaseDate);
+		this.setPegi(pegi);
+
+	}
+
 
 	// Getters y setters
 
