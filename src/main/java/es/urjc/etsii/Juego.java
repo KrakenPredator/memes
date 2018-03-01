@@ -1,10 +1,13 @@
 package es.urjc.etsii;
 
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import java.io.File;
 
 @Entity
 public class Juego {
@@ -33,12 +36,12 @@ public class Juego {
 	private String releaseDate;
 	private String pegi;
 	private String url;
-	private String img;
+	private MultipartFile img;
 
 	public Juego() {
 	}
 	
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, String img) {
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, MultipartFile img) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -160,11 +163,11 @@ public class Juego {
 		this.url = url;
 	}
 
-	public String getImg() {
+	public MultipartFile getImg() {
 		return img;
 	}
 
-	public void setImg(String img) {
+	public void setImg (MultipartFile img) {
 		this.img = img;
 	}
 }

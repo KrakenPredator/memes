@@ -1,4 +1,5 @@
 var img;
+var file = document.getElementById("img");
 
 function fileChoose() {
     var filePath = $("#img").val();
@@ -7,6 +8,7 @@ function fileChoose() {
 }
 
 function registrar_juego() {
+    var formData = new FormData($('#game')[0]);
     var user = {}
     user["title"] = $("#title").val();
     user["price"] = $("#price").val();
@@ -18,7 +20,7 @@ function registrar_juego() {
     user["language"] = $("#language").val();
     user["releaseDate"] = $("#releaseDate").val();
     user["pegi"] = $("#pegi").val();
-    user["img"] = img;
+    user["img"] = formData;
     $.ajax({
         type: "POST",
         contentType : 'application/json; charset=utf-8',
