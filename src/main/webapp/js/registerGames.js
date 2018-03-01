@@ -1,9 +1,10 @@
 var img;
 
-$("#img").on('change', function () {
-    var filePath = $(this).val();
+function fileChoose() {
+    var filePath = $("#img").val();
+    console.log(filePath);
     img = filePath;
-})
+}
 
 function registrar_juego() {
     var user = {}
