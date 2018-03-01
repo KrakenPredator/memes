@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import java.io.File;
 
 @Entity
 public class Juego {
@@ -34,12 +33,12 @@ public class Juego {
 	private String releaseDate;
 	private String pegi;
 	private String url;
-	private File img;
+	private String img;
 
 	public Juego() {
 	}
 	
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, File img) {
+	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, String img) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -161,11 +160,11 @@ public class Juego {
 		this.url = url;
 	}
 
-	public File getImg() {
+	public String getImg() {
 		return img;
 	}
 
-	public void setImg(File img) {
+	public void setImg(String img) {
 		this.img = img;
 	}
 }
