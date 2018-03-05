@@ -35,3 +35,4 @@ function registrar_usuario() {
         }
     });
 }
+

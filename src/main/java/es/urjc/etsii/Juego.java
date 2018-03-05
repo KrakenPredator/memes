@@ -29,7 +29,7 @@ public class Juego {
 	private String genre;
 	private String players;
 	private String duration;
-	private String language;
+	private String gameLanguage;
 	private String releaseDate;
 	private String pegi;
 	private String url;
@@ -54,7 +54,7 @@ public class Juego {
 
 	}
 
-	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi) {
+	/*public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi) {
 		this.setTitle(title);
 		this.setPrice(price);
 		this.setDeveloper(developer);
@@ -66,7 +66,7 @@ public class Juego {
 		this.setReleaseDate(releaseDate);
 		this.setPegi(pegi);
 
-	}
+	}*/
 
 
 	// Getters y setters
@@ -128,11 +128,11 @@ public class Juego {
 	}
 
 	public String getLanguage() {
-		return language;
+		return gameLanguage;
 	}
 
 	public void setLanguage(String language) {
-		this.language = language;
+		this.gameLanguage = language;
 	}
 
 	public String getReleaseDate() {

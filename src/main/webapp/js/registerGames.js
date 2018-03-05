@@ -8,19 +8,19 @@ function fileChoose() {
 }
 
 function registrar_juego() {
-    var formData = new FormData($('#game')[0]);
-    var user = {}
-    user["title"] = $("#title").val();
-    user["price"] = $("#price").val();
-    user["developer"] = $("#developer").val();
-    user["duration"] = $("#duration").val();
-    user["editor"] = $("#editor").val();
-    user["players"] = $("#players").val();
-    user["genre"] = $("#genre").val();
-    user["language"] = $("#language").val();
-    user["releaseDate"] = $("#releaseDate").val();
-    user["pegi"] = $("#pegi").val();
-    user["img"] = formData;
+    var juego = {}
+    juego["title"] = $("#title").val();
+    juego["price"] = $("#price").val();
+    juego["developer"] = $("#developer").val();
+    juego["duration"] = $("#duration").val();
+    juego["editor"] = $("#editor").val();
+    juego["players"] = $("#players").val();
+    juego["genre"] = $("#genre").val();
+    juego["gameLanguage"] = $("#language").val();
+    juego["releaseDate"] = $("#releaseDate").val();
+    juego["pegi"] = $("#pegi").val();
+    juego["url"] = "";
+    juego["imgUrl"] = $("#img").val();
     $.ajax({
         type: "POST",
         contentType : 'application/json; charset=utf-8',
@@ -28,7 +28,7 @@ function registrar_juego() {
         cache: false,
         timeout: 600000,
         dataType: 'json',
-        data: JSON.stringify(user),
+        data: JSON.stringify(juego),
         success:function (e) {
             console.log(e.toString());
         },

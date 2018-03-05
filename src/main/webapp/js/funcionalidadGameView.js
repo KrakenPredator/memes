@@ -12,6 +12,9 @@ $(document).ready(function(){
             var games = listaJuegos._embedded.games;
             var paridad = 0;
             for (i = 0; i < games.length; i++) {
+
+                console.log(games[i].imgUrl);
+
                 var html =
                     "<div class=\"row game\" style=\"background-color: ghostwhite; border-radius: 1%; margin: 2%;\">\n" +
                     "\t\t\t\t\t<div class=\"col-md-12\">\n" +
@@ -27,7 +30,7 @@ $(document).ready(function(){
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
-                    "\t\t\t\t\t\t\t<img id=\"gameCover"+(i-1)+"\" class=\"gameCover\" src=\""+games[i].img+"\" style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
+                    "\t\t\t\t\t\t\t<img id=\"gameCover"+(i-1)+"\" class=\"gameCover\" src="+games[i].img+" style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
                     "\t\t\t\t\t\t\t<a href=\"demoView.html\"><button href=\"/demoView.html\" id=\"demoButton"+(i-1)+"\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;  onclick=\"openDemoTab()>Probar demo</button></a>\n" +
                     "\t\t\t\t\t\t</div>\n" +
                     "\t\t\t\t\t\t<div class=\"col-md-8\" style=\"margin-top: 1.5em;\">\n" +
@@ -37,7 +40,7 @@ $(document).ready(function(){
                     "\t\t\t\t\t\t\t<dt>Editor:</dt><dd><span itemprop=\"name\">"+games[i].editor+"</span></dd>\n" +
                     "\t\t\t\t\t\t\t<div class=\"lin10\"></div><dl><dt class=\"edit_tematicas\" data-id_juego=\""+i+"\">Género:</dt><dd><span>"+games[i].genre+"</span></dd>\n" +
                     "\t\t\t\t\t\t\t<dt>Jugadores:</dt><dd>"+games[i].players+"</dd><dt>Duración:</dt><dd>"+games[i].duration+"</dd>\n" +
-                    "\t\t\t\t\t\t\t<dt>Idioma:</dt><dd>"+games[i].languaje+"</dd>\n" +
+                    "\t\t\t\t\t\t\t<dt>Idioma:</dt><dd>"+games[i].gameLanguage+"</dd>\n" +
                     "\t\t\t\t\t\t\t<dt>Lanzamiento:</dt><dd><span>"+games[i].releaseDate+"</span>\n" +
                     "\t\t\t\t\t\t\t<span class=\"c6\">"+games[i].pegi+"</span></dd></dl></span>\n" +
                     "\t\t\t\t\t\t</div> \n" +
