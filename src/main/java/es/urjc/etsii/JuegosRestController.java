@@ -49,8 +49,11 @@ public class JuegosRestController {
 	@RequestMapping(value = "/saveGame", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> registerGame(@RequestBody Juego game){
+
+		System.out.println(game.getLanguage());
+
 		juegoRepository.save(game);
-		System.out.println(game.getImg());
+
 		return new ResponseEntity<>("ok", HttpStatus.OK);
 	}
 

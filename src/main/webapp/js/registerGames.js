@@ -16,11 +16,12 @@ function registrar_juego() {
     juego["editor"] = $("#editor").val();
     juego["players"] = $("#players").val();
     juego["genre"] = $("#genre").val();
-    juego["gameLanguage"] = $("#language").val();
+    juego["language"] = $("#language").val();
     juego["releaseDate"] = $("#releaseDate").val();
-    juego["pegi"] = $("#pegi").val();
+    juego["pegi"] = "Pegi: +"+$("#pegi").val();
     juego["url"] = "";
-    juego["imgUrl"] = $("#img").val();
+    juego["img"] = $("#img").val();
+
     $.ajax({
         type: "POST",
         contentType : 'application/json; charset=utf-8',

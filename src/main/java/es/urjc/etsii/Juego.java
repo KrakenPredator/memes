@@ -29,7 +29,7 @@ public class Juego {
 	private String genre;
 	private String players;
 	private String duration;
-	private String gameLanguage;
+	private String language;
 	private String releaseDate;
 	private String pegi;
 	private String url;
@@ -128,11 +128,11 @@ public class Juego {
 	}
 
 	public String getLanguage() {
-		return gameLanguage;
+		return language;
 	}
 
 	public void setLanguage(String language) {
-		this.gameLanguage = language;
+		this.language = language;
 	}
 
 	public String getReleaseDate() {
