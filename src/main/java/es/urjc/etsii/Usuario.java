@@ -50,11 +50,12 @@ public class Usuario {
         this.city = city;
         this.isAdmin = isAdmin;
     }
-    public Usuario(String username, String pass, String name, String email){
+    public Usuario(String username, String pass, String name, String email, boolean isAdmin){
         this.username = username;
         this.password = pass;
         this.name = name;
         this.email = email;
+        this.isAdmin = isAdmin;
     }
     public String getUsername() {
         return username;
