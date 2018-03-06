@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
     $.ajax({
@@ -18,7 +17,7 @@ $(document).ready(function(){
                     "\t\t\t\t\t<div class=\"col-md-12\">\n" +
                     "\t\t\t\t\t\t<div class=\"row\" style=\"font-size: 1.5em; text-align: right;\">\n" +
                     "\t\t\t\t\t\t\t<div style=\"margin-left: 0.5em\">\n" +
-                    "\t\t\t\t\t\t\t\t<a href=\"createGameView.html?id="+games[i].getId()+"\">\n" +
+                    "\t\t\t\t\t\t\t\t<a href=\"createGameView.html?id="+games[i].id+"\">\n" +
                     "\t\t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-pencil\"></span>\n" +
                     "\t\t\t\t\t\t\t\t</a>\n" +
                     "\t\t\t\t\t\t\t\t<a href=\"#\">\n" +
@@ -52,19 +51,19 @@ $(document).ready(function(){
                     $("#colDer").append(html);
                 }
 
-               /* var img4 = document.createElement('img');
-                img4.setAttribute('src', $('#gameCover'+i).attr('src'));
-                img4.crossOrigin = "Anonymous";
-                var vibrant = new Vibrant(img4);
-                var swatches = vibrant.swatches();
-                for (var swatch in swatches){
-                    if (swatches.hasOwnProperty(swatch) && swatches[swatch]){
-                        console.log(swatch, swatches[swatch].getHex());
-                        document.getElementById("demoButton"+i).style.backgroundColor = swatches[swatch].getHex();
-                        document.getElementById("demoButton"+i).style.border = swatches[swatch].getHex();
-                        break;
-                    }
-                }*/
+                /* var img4 = document.createElement('img');
+                 img4.setAttribute('src', $('#gameCover'+i).attr('src'));
+                 img4.crossOrigin = "Anonymous";
+                 var vibrant = new Vibrant(img4);
+                 var swatches = vibrant.swatches();
+                 for (var swatch in swatches){
+                     if (swatches.hasOwnProperty(swatch) && swatches[swatch]){
+                         console.log(swatch, swatches[swatch].getHex());
+                         document.getElementById("demoButton"+i).style.backgroundColor = swatches[swatch].getHex();
+                         document.getElementById("demoButton"+i).style.border = swatches[swatch].getHex();
+                         break;
+                     }
+                 }*/
             }
         },
         error: function (e) {
@@ -93,9 +92,6 @@ function filtrarBusquedaPorNombre() {
 
         }
     }
-
-
 }
-
 
 

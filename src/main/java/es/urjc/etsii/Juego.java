@@ -37,7 +37,7 @@ public class Juego {
 
 	public Juego() {
 	}
-	
+
 	public Juego(String title, double price, String developer, String editor, String genre, String players, String duration, String language,String releaseDate, String pegi,  String url, String img) {
 		this.setTitle(title);
 		this.setPrice(price);
@@ -65,7 +65,6 @@ public class Juego {
 		this.setLanguage(language);
 		this.setReleaseDate(releaseDate);
 		this.setPegi(pegi);
-
 	}*/
 
 

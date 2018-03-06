@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="css/css.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/vibrant.js"></script>
+    <script src="js/cookieHandler.js"></script>
     <script src="js/funcionalidadGameView.js"></script>
 
     
@@ -27,16 +29,16 @@
                 </button>
                 <a class="navbar-brand" href="index.html">GAMEFLIX</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false" style="">
+            <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false">
                 <ul class="nav navbar-nav">
-                    <li id="selected"><a id="seleccionado" href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>
-                    <li><a href="#.html"> <span class="fa fa-gamepad"></span> Demos</a></li>
+                    <li id = "selected"><a id = "seleccionado" href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>
+                    <li><a href="#"> <span class="fa fa-gamepad"></span> Demos</a></li>
                     <li><a href="storeView.html"> <span class="glyphicon glyphicon-shopping-cart" ></span> Tienda</a></li>
-                    <li><a href="createGameView.html">  <span class="fa fa-gamepad"></span> Añadir Juegos</a></li>
+                    <li id="addGames" style='display: none;'><a href="createGameView.html"> <span class="fa fa-gamepad" ></span> Añadir Juegos</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Inicio sesión</a></li>
+                    <li style="display:none;" id="profile"><a href="#"><span class="fa fa-gamepad"></span> Perfil</a></li>
+                    <li id="login-link"><a  href="#modalLogin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Inicio sesión</a></li>
                 </ul>
             </div>
         </div>
