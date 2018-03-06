@@ -18,7 +18,7 @@ $(document).ready(function(){
                     "\t\t\t\t\t<div class=\"col-md-12\">\n" +
                     "\t\t\t\t\t\t<div class=\"row\" style=\"font-size: 1.5em; text-align: right;\">\n" +
                     "\t\t\t\t\t\t\t<div style=\"margin-left: 0.5em\">\n" +
-                    "\t\t\t\t\t\t\t\t<a href=\"#\">\n" +
+                    "\t\t\t\t\t\t\t\t<a href=\"createGameView.html\">\n" +
                     "\t\t\t\t\t\t\t\t\t<span class=\"glyphicon glyphicon-pencil\"></span>\n" +
                     "\t\t\t\t\t\t\t\t</a>\n" +
                     "\t\t\t\t\t\t\t\t<a href=\"#\">\n" +
@@ -72,13 +72,13 @@ $(document).ready(function(){
         }
     });
 
-    
+
 });
-    
+
 
 
 function filtrarBusquedaPorNombre() {
-    
+
     var input, filter, ul, li, a, i;
     input = document.getElementById("busqueda");
     filter = input.value.toUpperCase();
@@ -93,7 +93,7 @@ function filtrarBusquedaPorNombre() {
 
         }
     }
-    
+
 
 }
 
