@@ -37,7 +37,7 @@ $(document).ready(function(){
                     "\t\t\t\t\t\t\t<dt>Editor:</dt><dd><span itemprop=\"name\">"+games[i].editor+"</span></dd>\n" +
                     "\t\t\t\t\t\t\t<div class=\"lin10\"></div><dl><dt class=\"edit_tematicas\" data-id_juego=\""+i+"\">Género:</dt><dd><span>"+games[i].genre+"</span></dd>\n" +
                     "\t\t\t\t\t\t\t<dt>Jugadores:</dt><dd>"+games[i].players+"</dd><dt>Duración:</dt><dd>"+games[i].duration+"</dd>\n" +
-                    "\t\t\t\t\t\t\t<dt>Idioma:</dt><dd>"+games[i].gameLanguage+"</dd>\n" +
+                    "\t\t\t\t\t\t\t<dt>Idioma:</dt><dd>"+games[i].language+"</dd>\n" +
                     "\t\t\t\t\t\t\t<dt>Lanzamiento:</dt><dd><span>"+games[i].releaseDate+"</span>\n" +
                     "\t\t\t\t\t\t\t<span class=\"c6\">"+games[i].pegi+"</span></dd></dl></span>\n" +
                     "\t\t\t\t\t\t</div> \n" +

@@ -52,7 +52,7 @@ public class UsuarioRestController {
     @ResponseBody
     public ResponseEntity<?> registerUsuario(@RequestBody Usuario user){
         System.out.println(user.getUsername());
-        userRepository.save(new Usuario(user.getUsername(), user.getPassword(), user.getName(), user.getEmail(), user.isAdmin()));
+        userRepository.save(new Usuario(user.getUsername(), user.getPassword(), user.getName(), user.getEmail(), false));
         System.out.println(userRepository.findAll());
         return new ResponseEntity<Iterable<Usuario>>(userRepository.findAll(), HttpStatus.OK);
     }

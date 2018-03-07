@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="css/bootstrap.min.css"></link>
     <link rel="stylesheet" href="css/css.css"></link>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
-    <script src="js/cookieHandler.js"></script>
+    <script src="js/jscookie.js"></script>
     <script src="js/registerGames.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/cookieHandler.js"></script>
 </head>
 
 <body>
@@ -37,6 +39,53 @@
                 <li style="display:none;" id="profile"><a href="#"><span class="fa fa-gamepad"></span> Perfil</a></li>
                 <li id="login-link"><a  href="#modalLogin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Inicio sesión</a></li>
             </ul>
+        </div>
+    </div>
+</div>
+<div class="modal col-md-offset-4 col-md-4" id="modalLogin" style="display: none; text-align: center;">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <button class="close" type="button" data-dismiss="modal">x</button>
+            <h3>Inicia sesión</h3>
+        </div>
+        <div class="modal-body">
+            <div id="loginForm" action="" method="post">
+                <p><input id="email" class="input-style" id="email" type="text" placeholder="Email"></p>
+                <p><input id="passwd" class="input-style" type="password" placeholder="Password"></p>
+                <p><button class="btn btn-primary" onclick="checkear_usuario()">Iniciar sesión</button></p>
+                <a href="#">¿Olvidaste la contraseña?</a>
+                <p id="iniciado"></p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            ¿Aún no te has registrado?
+            <btn class="btn btn-primary" onClick="changeModal()">Registrar</btn>
+        </div>
+    </div>
+</div>
+<div class="modal col-md-offset-4 col-md-4" id="modalRegister" style="display: none; text-align: center;">
+    <div class="modal-content">
+        <div class="modal-header">
+
+            <button class="close" type="button" data-dismiss="modal">x</button>
+            <h3>¡Regístrate!</h3>
+        </div>
+        <div class="modal-body">
+            <div id="registerForm" action="" method="post">
+                <p><input id="emailReg" class="input-style" type="text" placeholder="Email"></p>
+                <p><input id="usernameReg" class="input-style" type="text" placeholder="Nombre de usuario"></p>
+                <p><input id="nombreReg" class="input-style" type="text" placeholder="Nombre"></p>
+                <p><input id="apellidosReg" class="input-style" type="text" placeholder="Apellidos"></p>
+                <p><input id="passwdReg" class="input-style" type="password" placeholder="Contraseña"></p>
+                <p><input id="passwdRepReg" class="input-style" type="password" placeholder="Repite la contraseña"></p>
+                <p><button class="btn btn-primary" onclick="registrar_usuario()">Registrar</button></p>
+                <p id="valido"></p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            ¿Ya tienes una cuenta?
+            <btn class="btn btn-primary" onClick="changeModal()">Iniciar sesión</btn>
         </div>
     </div>
 </div>
