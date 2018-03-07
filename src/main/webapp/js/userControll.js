@@ -93,7 +93,7 @@ function registrar_usuario() {
         dataType: 'json',
         data: JSON.stringify(game),
         success:function (e) {
-            console.log(e.toString());
+            changeModal();
         },
         error: function (e) {
 

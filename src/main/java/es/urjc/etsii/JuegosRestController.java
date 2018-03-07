@@ -53,10 +53,10 @@ public class JuegosRestController {
 		return new ResponseEntity<>("ok", HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/deleteGame/{identifier}", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteGame/{identifier}", method = RequestMethod.DELETE)
 	@ResponseBody
-	public ResponseEntity<?> deleteGame( @RequestParam(value="identifier") int game){
-		System.out.println(game);
+	public ResponseEntity<?> deleteGame( @PathVariable("identifier") int gameId){
+		juegoRepository.delete(gameId);
 		return new ResponseEntity<>("ok", HttpStatus.OK);
 	}
 
