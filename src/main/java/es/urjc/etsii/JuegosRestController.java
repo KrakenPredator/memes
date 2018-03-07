@@ -49,11 +49,14 @@ public class JuegosRestController {
 	@RequestMapping(value = "/saveGame", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<?> registerGame(@RequestBody Juego game){
-
-		System.out.println(game.getLanguage());
-
 		juegoRepository.save(game);
+		return new ResponseEntity<>("ok", HttpStatus.OK);
+	}
 
+	@RequestMapping(value = "/deleteGame/{identifier}", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<?> deleteGame( @RequestParam(value="identifier") int game){
+		System.out.println(game);
 		return new ResponseEntity<>("ok", HttpStatus.OK);
 	}
 

@@ -1,14 +1,23 @@
-var img;
-var file = document.getElementById("img");
+function eliminar_juego() {
+    $.ajax({
+        type: "DELETE",
+        contentType : 'application/json; charset=utf-8',
+        url: "/deleteGame/"+param,
+        cache: false,
+        timeout: 600000,
+        datatype: 'json',
+        success:function () {
 
-function fileChoose() {
-    var filePath = $("#img").val();
-    console.log(filePath);
-    img = filePath;
+        },
+        error:function(){
+        }
+    });
 }
 
 function registrar_juego() {
-    var juego = {}
+    console.log(param);
+    eliminar_juego();
+    var juego = {};
     juego["title"] = $("#title").val();
     juego["price"] = $("#price").val();
     juego["developer"] = $("#developer").val();
