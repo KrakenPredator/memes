@@ -39,17 +39,24 @@ function start() {
     timerInterval = setInterval(changeValue, 1000);
 }
 
-function probarDemo(gameId) {
+function play_demo(id){
+    var demo = {};
+    de["title"] = $("#title").val();
+
     $.ajax({
-        type: "GET",
+        type: "POST",
         contentType : 'application/json; charset=utf-8',
-        url: "/demos/{gameId}",
+        url: "/saveGame",
         cache: false,
         timeout: 600000,
-        success:function () {
-
+        dataType: 'json',
+        data: JSON.stringify(juego),
+        success:function (e) {
+            console.log(e.toString());
         },
-        error:function(){
+        error: function (e) {
+
         }
     });
 }
+

@@ -30,7 +30,7 @@ $(document).ready(function(){
                         "\t\t\t\t\t\t</div>\n" +
                         "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<img id=\"gameCover" + (i - 1) + "\" class=\"gameCover\" src=" + games[i].img + " style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
-                        "\t\t\t\t\t\t\t<a href=\"demoView.html?idG="+games[i].url+"\"><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
+                        "\t\t\t\t\t\t\t<a href=\"#\" onclick=\"play_demo(" + games[i].id + ")\"><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
                         "\t\t\t\t\t\t</div>\n" +
                         "\t\t\t\t\t\t<div class=\"col-md-8\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<span class=\"a_n\">\n" +
