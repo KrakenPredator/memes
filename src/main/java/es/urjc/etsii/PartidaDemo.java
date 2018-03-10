@@ -1,18 +1,14 @@
 package es.urjc.etsii;
 
-
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 
 @Entity
+
 public class PartidaDemo {
-    private String date;
-    private String time;
-    private String idGame;
-    private String idUser;
-    private double duration;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,15 +22,22 @@ public class PartidaDemo {
         this.id = id;
     }
 
+
+    private String date;
+    private String time;
+    private int gameId;
+    private int userId;
+    private double duration;
+
     public PartidaDemo(){
 
     }
 
-    public PartidaDemo(String date, String time, String game, String user, double duration){
+    public PartidaDemo(String date, String time, int gameId, int userId, double duration){
         this.date = date;
         this.time = time;
-        this.idGame = game;
-        this.idUser = user;
+        this.gameId = gameId;
+        this.userId = userId;
         this.duration = duration;
     }
 
@@ -54,20 +57,20 @@ public class PartidaDemo {
         this.time = time;
     }
 
-    public String getGame() {
-        return idGame;
+    public int getGame() {
+        return gameId;
     }
 
-    public void setGame(String game) {
-        this.idGame = game;
+    public void setGame(int game) {
+        this.gameId = game;
     }
 
-    public String getUser() {
-        return idUser;
+    public int getUser() {
+        return userId;
     }
 
-    public void setUser(String user) {
-        this.idUser = user;
+    public void setUser(int user) {
+        this.userId = user;
     }
 
     public double getDuration() {

@@ -1,18 +1,33 @@
 package es.urjc.etsii;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import java.util.Date;
 
 @RestController
 public class PartidaDemoRestController {
+
+
     @Autowired
-    private PartidaDemoRepository partidaDemoRepository;
+    private PartidaDemoRepository demoRepository;
+
 
     @PostConstruct
-    public void createDemos(){
-        PartidaDemo pd = new PartidaDemo("", "", "1", "1",0);
-        partidaDemoRepository.save(pd);
+    private void initDatabase(){
+
+        //Demos de prueba
+
+        java.util.Date fecha = new Date();
+        String fechaActual = fecha.toString();
+
+        demoRepository.save(new PartidaDemo(fechaActual,"10:10",1,1,0));
+
+
     }
+
+
+
 }

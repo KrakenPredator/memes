@@ -34,7 +34,7 @@ public class UsuarioRestController {
         if(conexionRepository.getConexionsByUsernameAndResult(user.getUsername(), false).size() >= 3){
             return ResponseEntity.badRequest().body(null);
         }
-        if (loggedIn != null && (loggedIn.getPassword().equals(user.getPassword()))) {
+        if (loggedIn != null & (loggedIn.getPassword().equals(user.getPassword()))) {
             newConexion = new Conexion(String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis()),
                     "192.168.1.1", user.getUsername(), true);
             conexionRepository.save(newConexion);
