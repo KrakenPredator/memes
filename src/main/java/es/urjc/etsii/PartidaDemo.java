@@ -1,23 +1,40 @@
 package es.urjc.etsii;
 
-import sun.security.krb5.internal.PAData;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class PartidaDemo {
     private String date;
     private String time;
-    private Juego game;
-    private Usuario user;
+    private String idGame;
+    private String idUser;
     private double duration;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public PartidaDemo(){
 
     }
 
-    public PartidaDemo(String date, String time, Juego game, Usuario user, double duration){
+    public PartidaDemo(String date, String time, String game, String user, double duration){
         this.date = date;
         this.time = time;
-        this.game = game;
-        this.user = user;
+        this.idGame = game;
+        this.idUser = user;
         this.duration = duration;
     }
 
@@ -37,20 +54,20 @@ public class PartidaDemo {
         this.time = time;
     }
 
-    public Juego getGame() {
-        return game;
+    public String getGame() {
+        return idGame;
     }
 
-    public void setGame(Juego game) {
-        this.game = game;
+    public void setGame(String game) {
+        this.idGame = game;
     }
 
-    public Usuario getUser() {
-        return user;
+    public String getUser() {
+        return idUser;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setUser(String user) {
+        this.idUser = user;
     }
 
     public double getDuration() {

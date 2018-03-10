@@ -23,6 +23,7 @@ function logOut() {
     $('#addGames').replaceWith("<li id=\"addGames\" style='display: none;'><a href=\"createGameView.html\"> <span class=\"fa fa-gamepad\" ></span> Añadir Juegos</a></li>\n");
     Cookies.remove('username');
     Cookies.remove('isAdmin');
+    Cookies.remove('userId');
 }
 
 function checkear_usuario(){
@@ -41,6 +42,7 @@ function checkear_usuario(){
         success: function (e) {
             Cookies.set('username', e.name, {expires: 14});
             Cookies.set('isAdmin', e.admin, {expires: 14});
+            Cookies.set('userId', e.id, {expires: 14});
             console.log("Successful Login "+e.name+" is inside, we are inside nigga");
             var profile = "<li id='profile'><a  href='#'><span class='glyphicon glyphicon-user'></span> "+e.name+"</a></li>";
             $('#profile').replaceWith(profile);
