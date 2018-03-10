@@ -14,7 +14,6 @@ $(document).ready(function(){
             for (i = 0; i < games.length; i++) {
                 var id = new URL(games[i]._links.juego.href).pathname.substring(7);
                 if(admin == "true") {
-                    console.log("lol");
                     var html = "<div class=\"row game\" id='game" + id + "' style=\"background-color: ghostwhite; border-radius: 1%; margin: 2%;\">\n" +
                         "\t\t\t\t\t<div class=\"col-md-12\">\n" +
                         "\t\t\t\t\t\t<div class=\"row\" style=\"font-size: 1.5em; text-align: right;\">\n" +
@@ -30,7 +29,7 @@ $(document).ready(function(){
                         "\t\t\t\t\t\t</div>\n" +
                         "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<img id=\"gameCover" + (i - 1) + "\" class=\"gameCover\" src=" + games[i].img + " style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
-                        "\t\t\t\t\t\t\t<a href=\"#\" onclick=\"play_demo(" + games[i].id + ")\"><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
+                        "\t\t\t\t\t\t\t<a onclick=\"play_demo("+id+", '"+games[i].url+"')\"><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
                         "\t\t\t\t\t\t</div>\n" +
                         "\t\t\t\t\t\t<div class=\"col-md-8\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<span class=\"a_n\">\n" +
@@ -51,7 +50,7 @@ $(document).ready(function(){
                         "\t\t\t\t\t<div class=\"col-md-12\">\n"+
                         "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<img id=\"gameCover" + (i - 1) + "\" class=\"gameCover\" src=" + games[i].img + " style=\"height:100%; width:100%; border-radius: 5%;\">\n" +
-                        "\t\t\t\t\t\t\t<a href=\"demoView.html?idG="+games[i].url+"\"><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
+                        "\t\t\t\t\t\t\t<a href=\"#\" onclick=\'play_demo("+id+", \""+games[i].url+"\")\'><button id=\"demoButton" + (i - 1) + "\" type=\"button\" class=\"btn btn-primary\" style=\"margin-top: 2em;\">Probar demo</button></a>\n" +
                         "\t\t\t\t\t\t</div>\n" +
                         "\t\t\t\t\t\t<div class=\"col-md-8\" style=\"margin-top: 1.5em;\">\n" +
                         "\t\t\t\t\t\t\t<span class=\"a_n\">\n" +
@@ -116,4 +115,23 @@ function delete_game(param) {
         error:function(){
         }
     });
+}
+
+function play_demo(id, url){
+    $.ajax({
+        type: "GET",
+        contentType : 'application/json; charset=utf-8',
+        url: "/checkDemo/"+id+"/"+Cookies.get("userId"),
+        cache: false,
+        timeout: 600000,
+        success:function (e) {
+            console.log("is ok");
+            window.location.href = "http://localhost:8080/demoView.html?idV="+url+"&idG="+id;
+        },
+        error: function (e) {
+            console.log("not ok");
+            //AQUI VA EL CODIGO PARA MOSTRAR QUE NO PUEDE PORQUE NO TIENE TIEMPO
+        }
+    });
+
 }

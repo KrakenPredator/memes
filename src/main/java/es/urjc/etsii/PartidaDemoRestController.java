@@ -29,38 +29,56 @@ public class PartidaDemoRestController {
         demoRepository.save(new PartidaDemo(fechaActual,"10:10",1,1,0));
     }
 
-    @RequestMapping(value = "/checkDemo", method = RequestMethod.POST)
+    @RequestMapping(value = "/checkDemo/{gId}/{uId}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<?> registerGame(@RequestBody PartidaDemo demo){
-        List<PartidaDemo> demosList = demoRepository.findPartidaDemosByGameIdAndUserId(demo.getGame(),demo.getId());
-
+    public ResponseEntity<?> checkDemos( @PathVariable("gId") int gameId, @PathVariable("uId") String userId){
+        List<PartidaDemo> demosList = demoRepository.findPartidaDemosByGameIdAndUserId(gameId, Integer.valueOf(userId));
         if(limiteAlcanzado(demosList)){
             return ResponseEntity.badRequest().body(null);
         }
         else{
-
-            return new ResponseEntity<>("ok", HttpStatus.OK);
+            System.out.println("Puede jugar demo");
+            return new ResponseEntity<String>("ok", HttpStatus.OK);
         }
+    }
 
-
+    @RequestMapping(value = "/saveDemo/{gId}/{uId}/{time}", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseEntity<?> saveDemo( @PathVariable("gId") int gameId, @PathVariable("uId") String userId, @PathVariable("time") String time){
+        java.util.Date fecha = new Date();
+        String fechaActual = fecha.toString();
+        String[] lista = fechaActual.split(" ");
+        String dia = lista[0]+"-"+lista[2]+"-"+lista[1]+"-"+lista[5];
+        String hora = lista[3];
+        System.out.println(dia);
+        System.out.println(hora);
+        System.out.println(time);
+        System.out.println(gameId);
+        System.out.println(userId);
+        PartidaDemo pd= new PartidaDemo(dia, hora, Integer.valueOf(gameId), Integer.valueOf(userId), Double.valueOf(time));
+        demoRepository.save(pd);
+        System.out.println("demo saved");
+        return new ResponseEntity<>("ok", HttpStatus.OK);
 
     }
 
     public boolean limiteAlcanzado(List<PartidaDemo> demos){
+
+        if(demos.isEmpty()){
+            return false;
+        }
 
         double cont = 0;
 
         for (int i = 0; i < demos.size(); i++) {
             cont+=demos.get(i).getDuration();
         }
-
-        if(cont>=3600){
+        System.out.println(cont);
+        if(cont>=3600) {
+            System.out.println("Tiempo superado");
             return true;
         }
-
-        else{
-            return false;
-        }
+        return false;
     }
 
 

@@ -1,11 +1,16 @@
 var url;
+var gId;
+var parametros;
 $(document).ready(function () {
-    params = new URL(document.location.href).search;
-    url = params.substring(5);
+    parametros = new URL(document.location.href).search;
+    url = parametros.substring(5, 16);
+    gId = parametros.substring(21);
     start();
 });
 
 var player;
+
+var value = 3600;
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('video', {
@@ -18,13 +23,34 @@ function onYouTubeIframeAPIReady() {
             color: 'white'
         }
     });
+
+
+}
+
+
+function pauseDemo() {
+    player.pauseVideo();
+    console.log("/saveDemo/" + parametros.substring(21) + "/" + Cookies.get("userId") + "/" + (3600 - value));
+    $.ajax({
+        type: "POST",
+        contentType: 'application/json; charset=utf-8',
+        url: "/saveDemo/" + parametros.substring(21) + "/" + Cookies.get("userId") + "/" + (3600 - value),
+        cache: false,
+        timeout: 600000,
+        dataType: 'json',
+        success: function (e) {
+
+        },
+        error: function (e) {
+            //AQUI VA EL CODIGO PARA MOSTRAR QUE NO PUEDE PORQUE NO TIENE TIEMPO
+        }
+    });
 }
 
 $('#pause').on('click', function () {
     console.log("paused");
 });
 
-var value = 3600;
 var current = 0;
 function changeValue() {
     var actual = player.getCurrentTime();
@@ -39,24 +65,5 @@ function start() {
     timerInterval = setInterval(changeValue, 1000);
 }
 
-function play_demo(id){
-    var demo = {};
-    de["title"] = $("#title").val();
 
-    $.ajax({
-        type: "POST",
-        contentType : 'application/json; charset=utf-8',
-        url: "/saveGame",
-        cache: false,
-        timeout: 600000,
-        dataType: 'json',
-        data: JSON.stringify(juego),
-        success:function (e) {
-            console.log(e.toString());
-        },
-        error: function (e) {
-
-        }
-    });
-}
 
