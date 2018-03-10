@@ -8,5 +8,5 @@ import java.util.List;
 
 @RepositoryRestResource(collectionResourceRel = "demos", path = "demos")
 public interface PartidaDemoRepository extends CrudRepository<PartidaDemo, Integer> {
-    PartidaDemo findByGameIdAnAndUserId(@Param("gameId") int gameId, @Param("userId") int userId);
+    PartidaDemo findPartidaDemoByGameIdAnAndUserId(@Param("gameId") int gameId, @Param("userId") int userId);
 }

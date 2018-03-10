@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 
 
 @Entity
-
 public class PartidaDemo {
 
     @Id

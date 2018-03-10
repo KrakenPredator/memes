@@ -1,6 +1,7 @@
 var url;
 $(document).ready(function () {
-    url = "TSYqDvTLOYU";
+    params = new URL(document.location.href).search;
+    url = params.substring(5);
     start();
 });
 
