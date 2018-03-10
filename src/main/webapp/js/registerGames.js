@@ -22,6 +22,7 @@ $(document).ready(function () {
                 $("#language").val(game.language);
                 $("#releaseDate").val(game.releaseDate);
                 $("#pegi").val(game.pegi);
+                $("#url").val(game.url);
             },
             error: function (e) {
                 console.log("failure: " + e.responseText);
@@ -59,8 +60,8 @@ function registrar_juego() {
     juego["genre"] = $("#genre").val();
     juego["language"] = $("#language").val();
     juego["releaseDate"] = $("#releaseDate").val();
-    juego["pegi"] = "Pegi: +"+$("#pegi").val();
-    juego["url"] = "";
+    juego["pegi"] = $("#pegi").val();
+    juego["url"] = $("#url").val();
     juego["img"] = $("#img").val();
 
     $.ajax({
