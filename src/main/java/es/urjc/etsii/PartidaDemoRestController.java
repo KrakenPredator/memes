@@ -20,7 +20,7 @@ public class PartidaDemoRestController {
 
     @PostConstruct
     private void initDatabase(){
-
+/**
         //Demos de prueba
 
         java.util.Date fecha = new Date();
@@ -30,7 +30,7 @@ public class PartidaDemoRestController {
         String hora = lista[3];
 
         demoRepository.save(new PartidaDemo(dia,hora,1,1,0));
-        demoRepository.save(new PartidaDemo(dia,hora,2,1,15));
+        demoRepository.save(new PartidaDemo(dia,hora,2,1,15));**/
     }
 
     @RequestMapping(value = "/checkDemo/{gId}/{uId}", method = RequestMethod.GET)

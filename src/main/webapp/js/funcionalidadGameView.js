@@ -185,18 +185,20 @@ function filtrarBusquedaPorNombre() {
 }
 
 function delete_game(param) {
-    $.ajax({
-        type: "DELETE",
-        contentType : 'application/json; charset=utf-8',
-        url: "/deleteGame/"+param,
-        cache: false,
-        timeout: 600000,
-        success:function () {
-            document.getElementById('game'+param).remove();
-        },
-        error:function(){
-        }
-    });
+    if(confirm("¿Desea eliminar el juego seleccionado?"))
+        $.ajax({
+            type: "DELETE",
+            contentType : 'application/json; charset=utf-8',
+            url: "/deleteGame/"+param,
+            cache: false,
+            timeout: 600000,
+            success:function () {
+                document.getElementById('game'+param).remove();
+                mostrarTodos();
+            },
+            error:function(){
+            }
+        });
 }
 
 function play_demo(id, url){

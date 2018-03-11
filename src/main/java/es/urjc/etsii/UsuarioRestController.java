@@ -24,10 +24,13 @@ public class UsuarioRestController {
 
     @PostConstruct
     private void initDatabase() {
-// Nuevos usuarios
+        /**
+        // Nuevos usuarios
         userRepository.save(new Usuario("krpr", "1234", "Javier Lopez", "mail@mail.com", true));
         userRepository.save(new Usuario("mane", "1234", "Manuel Viejo", "mail@mail.com", true));
         userRepository.save(new Usuario("beny", "1234", "Beny Martin", "mail@mail.com", false));
+
+         **/
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
