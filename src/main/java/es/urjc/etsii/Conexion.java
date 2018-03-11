@@ -69,7 +69,7 @@ public class Conexion {
         this.username = username;
     }
 
-    public boolean isResult() {
+    public boolean getResult() {
         return result;
     }
 

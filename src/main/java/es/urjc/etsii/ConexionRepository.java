@@ -8,4 +8,5 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "connections", path = "connections")
 public interface ConexionRepository extends CrudRepository<Conexion, Integer> {
     List<Conexion> getConexionsByUsernameAndResult(String username, Boolean result);
+    List<Conexion> getConexionsByUsername(String username);
 }

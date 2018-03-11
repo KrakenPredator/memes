@@ -28,15 +28,12 @@
             </button>
             <a class="navbar-brand" href="index.html">GAMEFLIX</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="false">
-            <ul class="nav navbar-nav">
-                <li><a href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>
-                <li><a href="#"> <span class="fa fa-gamepad"></span> Demos</a></li>
-                <li><a href="storeView.html"> <span class="glyphicon glyphicon-shopping-cart" ></span> Tienda</a></li>
-                <li id="addGames" style='display: none;'><a href="createGameView.html"> <span class="fa fa-gamepad" ></span> Añadir Juegos</a></li>
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+            <ul id = "botoneria"class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li style="display:none;" id="profile"><a href="#"><span class="fa fa-gamepad"></span> Perfil</a></li>
+                <li id="login-link"><a  href="#modalLogin" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Inicio sesión</a></li>
             </ul>
         </div>
     </div>
@@ -48,7 +45,7 @@
         <div class="col-md-10" >
             <h2 style="text-align: center;">TiEMPO RESTANTE DEMO: </h2>
             <h2 style="text-align: center;" id="timer"></h2>
-            <button onclick="pauseDemo()">Pausar demo</button>
+            <button class="btn-danger" onclick="pauseDemo()">Pausar demo</button>
         <div class="video-container">
             <div id="video">
             </div>

@@ -6,6 +6,10 @@ $(document).ready(function(){
         $('#profile').replaceWith(profile);
         var sesion = "<li id=\"login-link\"><a onclick='logOut()' data-toggle=\"modal\" href='#'><span id=\"sesion-icon\" class=\"glyphicon glyphicon-log-out\"></span> Cerrar sesión</a></li>";
         $('#login-link').replaceWith(sesion);
+        var botoneria = '<li><a href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>\n' +
+            '                    <li id="addGames" style=\'display: none;\'><a href="createGameView.html"> <span class="fa fa-gamepad" ></span> Añadir Juegos</a></li>\n' +
+            '                ';
+        $("#botoneria").append(botoneria);
         if (admin == "true") {
             var addGamesOption = "<li id=\"addGames\"><a href=\"createGameView.html\"> <span class=\"fa fa-gamepad\" ></span> Añadir Juegos</a></li>\n";
             $('#addGames').replaceWith(addGamesOption);
@@ -24,6 +28,8 @@ function logOut() {
     Cookies.remove('username');
     Cookies.remove('isAdmin');
     Cookies.remove('userId');
+    var host = new URL(document.location.href).host;
+    window.location.href = "http://"+host+"/";
 }
 
 function checkear_usuario(){
@@ -43,22 +49,27 @@ function checkear_usuario(){
             Cookies.set('username', e.name, {expires: 14});
             Cookies.set('isAdmin', e.admin, {expires: 14});
             Cookies.set('userId', e.id, {expires: 14});
-            console.log("Successful Login "+e.name+" is inside, we are inside nigga");
             var profile = "<li id='profile'><a  href='#'><span class='glyphicon glyphicon-user'></span> "+e.name+"</a></li>";
             $('#profile').replaceWith(profile);
             $('#modalLogin').modal('hide');
-            var sesion = "<li id=\"login-link\"><a onclick='logOut()' data-toggle=\"modal\" href='#'><span id=\"sesion-icon\" class=\"glyphicon glyphicon-log-out\"></span> Cerrar sesión</a></li>";
+            var sesion = "<li id=\"login-link\"><a onclick='logOut()' data-toggle=\"modal\"><span id=\"sesion-icon\" class=\"glyphicon glyphicon-log-out\"></span> Cerrar sesión</a></li>";
             $('#login-link').replaceWith(sesion);
-
+            var botoneria = '<li><a href="gamesView.html"> <span class="fa fa-gamepad"></span> Juegos</a></li>\n' +
+                '                    <li id="addGames" style=\'display: none;\'><a href="createGameView.html"> <span class="fa fa-gamepad" ></span> Añadir Juegos</a></li>\n' +
+                '                ';
+            $("#botoneria").append(botoneria);
             console.log(e.admin);
             if(e.admin){
                 var addGamesOption = "<li id=\"addGames\"><a href=\"createGameView.html\"> <span class=\"fa fa-gamepad\" ></span> Añadir Juegos</a></li>\n";
                 $('#addGames').replaceWith(addGamesOption);
+            }else{
+                var host = new URL(document.location.href).host;
+                window.location.href = "http://"+host+"/gamesView.html";
             }
         },
         error: function (e) {
             console.log("failure: "+e.responseText);
-            $('#iniciado').replaceWith("<p id='iniciado'>Error al iniciar sesión</p>")
+            $('#iniciado').replaceWith("<p id='iniciado'>"+e.responseText+"</p>")
 
         }
     });

@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,21 +34,45 @@ public class UsuarioRestController {
     @ResponseBody
     public ResponseEntity<?> getUsuario(@RequestBody Login user){
         Usuario loggedIn = userRepository.findByUsername(user.getUsername());
-        Conexion newConexion;
-        if(conexionRepository.getConexionsByUsernameAndResult(user.getUsername(), false).size() >= 3){
-            return ResponseEntity.badRequest().body(null);
+        if(loggedIn == null){
+            return ResponseEntity.badRequest().body("El usuario no existe");
         }
-        if (loggedIn != null & (loggedIn.getPassword().equals(user.getPassword()))) {
-            newConexion = new Conexion(String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis()),
-                    "192.168.1.1", user.getUsername(), true);
-            conexionRepository.save(newConexion);
 
+        if(superaIntentos(user.getUsername())){
+            return ResponseEntity.badRequest().body("Lo sentimos, ha superado el número de intentos de conexión \n " +
+                    "contacte con el administrador del sitio web.");
+        }
+        Conexion newConexion;
+        java.util.Date fecha = new Date();
+        String fechaActual = fecha.toString();
+        String[] lista = fechaActual.split(" ");
+        String dia = lista[0]+"-"+lista[2]+"-"+lista[1]+"-"+lista[5];
+        String hora = lista[3];
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes())
+                .getRequest();
+        String ip = request.getRemoteAddr();
+        newConexion = new Conexion(dia, hora, ip, user.getUsername(), true);
+        if (loggedIn.getPassword().equals(user.getPassword())) {
+            conexionRepository.save(newConexion);
             return new ResponseEntity<Usuario>(loggedIn, HttpStatus.OK);
         }else {
-            newConexion = new Conexion(String.valueOf(System.currentTimeMillis()), String.valueOf(System.currentTimeMillis()),
-                    "192.168.1.1", user.getUsername(), false);
+            newConexion.setResult(false);
             conexionRepository.save(newConexion);
-            return ResponseEntity.badRequest().body(null);
+            return ResponseEntity.badRequest().body("La contraseña es errónea");
+        }
+    }
+
+    private boolean superaIntentos(String username){
+        List<Conexion> conexiones = conexionRepository.getConexionsByUsername(username);
+        if(conexiones.size() < 3){
+            return false;
+        }else{
+            int intentosSeguidos = 0;
+            for(int i = conexiones.size()-1; i >= conexiones.size()-3; i--){
+                if(!conexiones.get(i).getResult())
+                    intentosSeguidos++;
+            }
+            return intentosSeguidos==3;
         }
     }
 
@@ -53,8 +81,7 @@ public class UsuarioRestController {
     public ResponseEntity<?> registerUsuario(@RequestBody Usuario user){
         System.out.println(user.getUsername());
         userRepository.save(new Usuario(user.getUsername(), user.getPassword(), user.getName(), user.getEmail(), false));
-        System.out.println(userRepository.findAll());
-        return new ResponseEntity<Iterable<Usuario>>(userRepository.findAll(), HttpStatus.OK);
+        return new ResponseEntity<String>("Usuario registrado con éxito", HttpStatus.OK);
     }
 
 }

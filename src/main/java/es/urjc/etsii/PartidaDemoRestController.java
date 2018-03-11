@@ -25,8 +25,12 @@ public class PartidaDemoRestController {
 
         java.util.Date fecha = new Date();
         String fechaActual = fecha.toString();
+        String[] lista = fechaActual.split(" ");
+        String dia = lista[0]+"-"+lista[2]+"-"+lista[1]+"-"+lista[5];
+        String hora = lista[3];
 
-        demoRepository.save(new PartidaDemo(fechaActual,"10:10",1,1,0));
+        demoRepository.save(new PartidaDemo(dia,hora,1,1,0));
+        demoRepository.save(new PartidaDemo(dia,hora,2,1,15));
     }
 
     @RequestMapping(value = "/checkDemo/{gId}/{uId}", method = RequestMethod.GET)
@@ -34,11 +38,10 @@ public class PartidaDemoRestController {
     public ResponseEntity<?> checkDemos( @PathVariable("gId") int gameId, @PathVariable("uId") String userId){
         List<PartidaDemo> demosList = demoRepository.findPartidaDemosByGameIdAndUserId(gameId, Integer.valueOf(userId));
         if(limiteAlcanzado(demosList)){
-            return ResponseEntity.badRequest().body(null);
+            return ResponseEntity.badRequest().body("Ha superado el límite de tiempo de prueba");
         }
         else{
-            System.out.println("Puede jugar demo");
-            return new ResponseEntity<String>("ok", HttpStatus.OK);
+            return new ResponseEntity<>(tiempo(demosList), HttpStatus.OK);
         }
     }
 
@@ -50,17 +53,21 @@ public class PartidaDemoRestController {
         String[] lista = fechaActual.split(" ");
         String dia = lista[0]+"-"+lista[2]+"-"+lista[1]+"-"+lista[5];
         String hora = lista[3];
-        System.out.println(dia);
-        System.out.println(hora);
-        System.out.println(time);
-        System.out.println(gameId);
-        System.out.println(userId);
         PartidaDemo pd= new PartidaDemo(dia, hora, Integer.valueOf(gameId), Integer.valueOf(userId), Double.valueOf(time));
         demoRepository.save(pd);
-        System.out.println("demo saved");
         return new ResponseEntity<>("ok", HttpStatus.OK);
 
     }
+
+
+    private int tiempo(List<PartidaDemo> demos){
+        int cont = 0;
+        for (int i = 0; i < demos.size(); i++) {
+            cont+=demos.get(i).getDuration();
+        }
+        return 15-cont;
+    }
+
 
     public boolean limiteAlcanzado(List<PartidaDemo> demos){
 
@@ -73,9 +80,7 @@ public class PartidaDemoRestController {
         for (int i = 0; i < demos.size(); i++) {
             cont+=demos.get(i).getDuration();
         }
-        System.out.println(cont);
-        if(cont>=3600) {
-            System.out.println("Tiempo superado");
+        if(cont>=15) {
             return true;
         }
         return false;

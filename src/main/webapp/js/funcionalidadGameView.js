@@ -45,7 +45,6 @@ $(document).ready(function(){
                         "\t\t\t\t\t\n" +
                         "</div>";
                 }else{
-                    console.log("lel");
                     var html = "<div class=\"row game\" id='game" + id + "' style=\"background-color: ghostwhite; border-radius: 1%; margin: 2%;\">\n" +
                         "\t\t\t\t\t<div class=\"col-md-12\">\n"+
                         "\t\t\t\t\t\t<div class=\"col-md-4\" style=\"margin-top: 1.5em;\">\n" +
@@ -125,12 +124,16 @@ function play_demo(id, url){
         cache: false,
         timeout: 600000,
         success:function (e) {
-            console.log("is ok");
-            window.location.href = "http://localhost:8080/demoView.html?idV="+url+"&idG="+id;
+            var value = e.toString();
+            if (confirm("¿Desea jugar la demo del juego seleccionado?\n" +
+                    "Tiempo restante: "+(Math.trunc(value / 3600) + ":" + Math.trunc(value / 60) + ":" + value % 60))){
+                var host = new URL(document.location.href).host;
+                window.location.href = "http://"+host+"/demoView.html?idV="+url+"&idG="+id;
+            } else {
+            }
         },
         error: function (e) {
-            console.log("not ok");
-            //AQUI VA EL CODIGO PARA MOSTRAR QUE NO PUEDE PORQUE NO TIENE TIEMPO
+            alert(e.responseText);
         }
     });
 
